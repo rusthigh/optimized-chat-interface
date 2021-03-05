@@ -16,4 +16,18 @@
           "devServerTarget": "chat:serve:production"
         },
         "ci": {
-          "de
+          "devServerTarget": "chat:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/chat-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["chat"]
+}
