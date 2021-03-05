@@ -7,4 +7,7 @@ describe("chat", () => {
     // Custom command example, see `../support/commands.ts` file
     cy.login("my-email@something.com", "myPassword");
 
-    // Function helper
+    // Function helper example, see `../support/app.po.ts` file
+    getGreeting().contains("Welcome chat");
+  });
+});
