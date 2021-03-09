@@ -16,4 +16,26 @@
       ],
       "options": {
         "jestConfig": "libs/chat/data-access-chat/jest.config.ts",
-        "passWithNoT
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/chat/data-access-chat/**/*.ts",
+          "libs/chat/data-access-chat/**/*.html"
+        ]
+      }
+    }
+  }
+}
