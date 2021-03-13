@@ -77,3 +77,60 @@ export class ChatService {
       },
       {
         content: assistantMessage,
+        role: 'assistant'
+      },
+      {
+        content:
+          'What would be a short and relevant title for this chat? You must strictly answer with only the title, no other text is allowed, not even quotes.',
+        role: 'user'
+      }
+    ];
+
+    // TODO optimize this so no duplicate code
+    return new Observable((observer) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('Authorization', 'Bearer ' + apiKey);
+
+      xhr.onprogress = () => {
+        const newUpdates = xhr.responseText
+          .replace('data: [DONE]', '')
+          .trim()
+          .split('data: ')
+          .filter(Boolean);
+
+        const newUpdatesParsed: string[] = newUpdates.map((update) => {
+          const parsed = JSON.parse(update);
+          return parsed.choices[0].delta?.content || '';
+        });
+
+        observer.next(newUpdatesParsed.join(''));
+      };
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            observer.complete();
+          } else {
+            observer.error(
+              new Error('Request failed with status ' + xhr.status)
+            );
+          }
+        }
+      };
+
+      xhr.send(
+        JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          messages,
+          stream: true
+        })
+      );
+
+      return () => {
+        xhr.abort();
+      };
+    });
+  }
+}
