@@ -1,0 +1,4 @@
+{
+  "name": "chat-data-access-chat-state",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/chat/data-access-chat-state/
