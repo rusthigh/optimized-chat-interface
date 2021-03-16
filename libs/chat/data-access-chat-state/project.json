@@ -25,4 +25,10 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/c
+          "libs/chat/data-access-chat-state/**/*.ts",
+          "libs/chat/data-access-chat-state/**/*.html"
+        ]
+      }
+    }
+  }
+}
