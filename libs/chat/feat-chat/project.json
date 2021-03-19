@@ -1,0 +1,13 @@
+{
+  "name": "chat-feat-chat",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/chat/feat-chat/src",
+  "prefix": "ac",
+  "tags": ["scope:chat", "type:feat"],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/chat/feat-ch
