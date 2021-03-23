@@ -1,0 +1,49 @@
+
+<ng-container *ngIf="vm$ | async as vm">
+  <div class="chat__wrapper">
+    <ac-app-info></ac-app-info>
+
+    <div class="chat__api-key__wrapper" *ngIf="vm.showInputApiKey">
+      <p>Enter your OpenAI API key to get started.</p>
+      <button class="chat__button-api-key" (click)="openInputApiKeyDialog()">Enter API Key</button>
+    </div>
+
+    <ac-api-key-input-dialog *ngIf="vm.inputApiKeyDialogVisible"
+                             [apiKey]="vm.openAIApiKey"
+                             (apiKeyEntered)="setApiKey($event)"
+                             (closeDialog)="closeInputApiKeyDialog()"></ac-api-key-input-dialog>
+
+    <div class="chat__messages" *ngIf="vm.chat">
+      <ac-chat-message *ngFor="let message of vm.chat.messages; trackBy: tracker" [message]="message"
+                       [userProfilePicUrl]="vm.userProfilePicUrl"
+                       (userProfilePicClicked)="openUserProfileDialog()"
+                       (systemOptionsClicked)="openSystemOptionsDialog()"
+      ></ac-chat-message>
+    </div>
+
+    <ac-profile-pic-input-dialog *ngIf="vm.userProfilePicDialogVisible"
+                                 [userProfilePicUrl]="vm.userProfilePicUrl"
+                                 (clearProfilePic)="setProfilePic('')"
+                                 (closeDialog)="closeUserProfileDialog()"
+                                 (profilePicUrlEntered)="setProfilePic($event)"
+    ></ac-profile-pic-input-dialog>
+
+
+    <ac-model-settings-dialog *ngIf="vm.systemOptionsDialogVisible"
+                              [chat]="vm.chat"
+                              (modelChanged)="modelChanged($event)"
+                              (temperatureChanged)="temperatureChanged($event)"
+                              (initialSystemInstructionChanged)="initialSystemInstructionChanged($event)"
+                              (setDefaultModelSettings)="setDefaultModelSettings($event)"
+                              (closeDialog)="closeSystemOptionsDialog()"></ac-model-settings-dialog>
+
+
+    <div class="chatbox">
+      <ac-chatbox
+        [sendOnEnter]="vm.sendOnEnter"
+        [sidebarOpen]="vm.sidebarOpen"
+        (newMessage)="newChatMessage($event)"
+        (toggleSendOnEnter)="toggleSendOnEnter()"></ac-chatbox>
+    </div>
+  </div>
+</ng-container>
