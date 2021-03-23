@@ -209,3 +209,78 @@ export class ChatSmartComponent extends ObservableState<State> {
 
   public setApiKey(apiKey: string): void {
     this.chatObservableState.setOpenApiKey(apiKey);
+    this.closeInputApiKeyDialog();
+  }
+
+  public openUserProfileDialog(): void {
+    this.patch({ userProfilePicDialogVisible: true });
+  }
+
+  public closeUserProfileDialog(): void {
+    this.patch({ userProfilePicDialogVisible: false });
+  }
+
+  public setProfilePic(url: string): void {
+    this.chatObservableState.setUserProfilePicUrl(url);
+    this.closeUserProfileDialog();
+  }
+
+  public toggleSendOnEnter(): void {
+    this.chatObservableState.toggleSendOnEnter();
+  }
+
+  public openSystemOptionsDialog(): void {
+    this.patch({ systemOptionsDialogVisible: true });
+  }
+
+  public closeSystemOptionsDialog(): void {
+    this.patch({ systemOptionsDialogVisible: false });
+  }
+
+  public modelChanged(model: string): void {
+    this.chatObservableState.setModelForChat(
+      model,
+      this.snapshot.currentChatId
+    );
+  }
+
+  public temperatureChanged(temperature: number): void {
+    this.chatObservableState.setTemperatureForChat(
+      temperature,
+      this.snapshot.currentChatId
+    );
+  }
+
+  public initialSystemInstructionChanged(
+    initialSystemInstruction: string
+  ): void {
+    this.chatObservableState.setInitialSystemInstructionForChat(
+      initialSystemInstruction,
+      this.snapshot.currentChatId
+    );
+  }
+
+  public setDefaultModelSettings({
+    model,
+    temperature,
+    initialSystemInstruction
+  }: {
+    model: string;
+    temperature: number;
+    initialSystemInstruction: string;
+  }): void {
+    this.chatObservableState.setDefaultModelSettingsForChat(
+      model,
+      temperature,
+      initialSystemInstruction
+    );
+  }
+}
+
+const mapToChat = () =>
+  pipe(
+    map(
+      ({ currentChatId, chats }: { currentChatId: string; chats: Chat[] }) =>
+        chats.find((chat) => chat.id === currentChatId) || null
+    )
+  );
