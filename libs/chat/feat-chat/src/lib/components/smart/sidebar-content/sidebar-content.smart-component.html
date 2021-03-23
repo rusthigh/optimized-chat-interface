@@ -8,4 +8,9 @@
   </div>
 
   <ac-chat-list [chats]="vm.filteredChats" [currentChatId]="vm.currentChatId"
-                (chatTitleEdite
+                (chatTitleEdited)="chatTitleEdited($event)"
+                (chatDeleted)="chatDeleted($event)"
+                (chatClicked)="chatClicked($event)"
+                (toggleChatAsFavorite)="toggleChatAsFavorite($event)"
+  ></ac-chat-list>
+</ng-container>
