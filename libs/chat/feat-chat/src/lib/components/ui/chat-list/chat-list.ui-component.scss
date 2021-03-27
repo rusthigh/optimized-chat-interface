@@ -3,4 +3,33 @@
 
 .chats {
   &__item {
-    disp
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    height: 50px;
+    font-size: 0.9rem;
+
+    .button-mark-as-favorite {
+      padding: 0 8px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        color: $orange-600;
+        cursor: pointer;
+      }
+
+      &.favorite {
+        color: $orange-600;
+      }
+    }
+
+    &:hover {
+      background-color: $gray-300;
+    }
+
+    &--active {
+      backg
