@@ -38,4 +38,33 @@
     column-gap: 1.5rem;
     margin: 2rem auto;
 
-    @media (min-width: $brea
+    @media (min-width: $breakpoint-sm) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &__item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+
+      &:before {
+        content: '✓';
+        width: 1.2rem;
+        height: 1.2rem;
+        background: $orange-500;
+        border-radius: 50%;
+        font-size: 0.8rem;
+        color: white;
+        line-height: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.brand-logo {
+  width: 60px;
+ 
