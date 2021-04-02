@@ -32,4 +32,36 @@
     }
 
     &--active {
-      backg
+      background-color: $gray-300;
+    }
+
+    .chat-title {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+    }
+  }
+}
+
+.no-chats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: $gray-600;
+  margin: $spacing-small;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.favorited-chats {
+  &__wrapper {
+    border-bottom: 1px solid $gray-300;
+  }
+
+  &__title {
+    padding: 0 $spacing-medium;
+    color: $gray-600;
+    text-transform: uppercase;
+    font-weight: bold;
