@@ -36,4 +36,14 @@ type ChatListInputState = {
 })
 export class ChatListUiComponent {
   @InputState()
-  private readonly inputSta
+  private readonly inputState$!: Observable<ChatListInputState>;
+  @Input() public chats: Chat[] = [];
+  @Input() public currentChatId: string | null = null;
+  @Output() public readonly chatTitleEdited = new EventEmitter<{
+    newTitle: string;
+    id: string;
+  }>();
+  @Output() public readonly chatDeleted = new EventEmitter<string>();
+  @Output() public readonly toggleChatAsFavorite = new EventEmitter<string>();
+  @Output() public readonly chatClicked = new EventEmitter<string>();
+  public readonly tracker: TrackByFunction<Chat> = (index, item) => item.id;
