@@ -47,3 +47,25 @@ export class ChatListUiComponent {
   @Output() public readonly toggleChatAsFavorite = new EventEmitter<string>();
   @Output() public readonly chatClicked = new EventEmitter<string>();
   public readonly tracker: TrackByFunction<Chat> = (index, item) => item.id;
+
+  public readonly vm$: Observable<ViewModel> = this.inputState$.pipe(
+    map(({ chats, currentChatId }) => {
+      const favoritedChats: Chat[] = chats.filter((chat) => chat.favorited);
+      return {
+        favoritedChats,
+        allChats: chats,
+        currentChatId,
+        showEmptyState: chats.length === 0
+      };
+    })
+  );
+
+  public onChatTitleEdited(newTitle: string, id: string): void {
+    this.chatTitleEdited.emit({ newTitle, id });
+  }
+
+  public onChatDelete(id: string): void {
+    this.chatDeleted.emit(id);
+  }
+
+  public onToggleChatAsFavorite(id: string
