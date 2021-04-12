@@ -68,4 +68,11 @@ export class ChatListUiComponent {
     this.chatDeleted.emit(id);
   }
 
-  public onToggleChatAsFavorite(id: string
+  public onToggleChatAsFavorite(id: string): void {
+    this.toggleChatAsFavorite.emit(id);
+  }
+
+  public onChatClicked(id: string): void {
+    this.chatClicked.emit(id);
+  }
+}
