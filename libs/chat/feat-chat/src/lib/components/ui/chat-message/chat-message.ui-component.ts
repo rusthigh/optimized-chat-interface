@@ -34,4 +34,14 @@ type ViewModel = {
 })
 export class ChatMessageUiComponent {
   @InputState()
-  private r
+  private readonly inputState$!: Observable<ChatMessageInputState>;
+  @Input() public message: Message | null = null;
+  @Input() public userProfilePicUrl = '';
+  @Output() public readonly userProfilePicClicked = new EventEmitter<void>();
+  @Output() public readonly systemOptionsClicked = new EventEmitter<void>();
+
+  public readonly vm$: Observable<ViewModel> = this.inputState$.pipe(
+    map(({ message, userProfilePicUrl }) => {
+      const isUserMessage = message?.role === 'user';
+      const isSystemMessage = message?.role === 'system';
+      const isA
