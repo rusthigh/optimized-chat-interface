@@ -44,4 +44,24 @@ export class ChatMessageUiComponent {
     map(({ message, userProfilePicUrl }) => {
       const isUserMessage = message?.role === 'user';
       const isSystemMessage = message?.role === 'system';
-      const isA
+      const isAssistantMessage = message?.role === 'assistant';
+      const isDefaultUserIcon =
+        !!userProfilePicUrl && userProfilePicUrl.length > 0;
+      const avatarUrl =
+        isDefaultUserIcon && isUserMessage
+          ? userProfilePicUrl
+          : getAvatarUrl(message?.role ?? 'user');
+
+      return {
+        message: message?.content ?? '',
+        avatarUrl: avatarUrl,
+        isUserMessage,
+        isSystemMessage,
+        isAssistantMessage,
+        isDefaultUserIcon
+      };
+    })
+  );
+
+  public userAvatarClicked(): void {
+    this.u
