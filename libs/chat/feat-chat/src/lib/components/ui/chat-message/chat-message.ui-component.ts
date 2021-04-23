@@ -64,4 +64,27 @@ export class ChatMessageUiComponent {
   );
 
   public userAvatarClicked(): void {
-    this.u
+    this.userProfilePicClicked.emit();
+  }
+
+  public systemAvatarClicked(): void {
+    this.systemOptionsClicked.emit();
+  }
+}
+
+// TODO make these URLs configurable
+function getAvatarUrl(role: Role) {
+  if (role === 'user') {
+    return '/assets/images/avatar/user.svg';
+  }
+
+  if (role === 'system') {
+    return '/assets/images/avatar/gear.svg';
+  }
+
+  if (role === 'assistant') {
+    return '/assets/ameliorated-chat-logo.svg';
+  }
+
+  return '';
+}
