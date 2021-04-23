@@ -1,4 +1,12 @@
 <ng-container *ngIf="vm$ | async as vm">
 
   <div class="chatbox__wrapper" [ngClass]="{ 'chatbox__wrapper-sidebar-open': vm.sidebarOpen }">
-      <te
+      <textarea id="chatbox" class="chatbox__textarea"
+                placeholder="Type in your message..." maxlength="3200"
+                [(ngModel)]="vm.message" (input)="onTextAreaInput()" (ngModelChange)="updateMessage($event)"
+                rows="1"
+      ></textarea>
+    <button class="chatbox__btn-send" (click)="onSend()">✉ Send</button>
+  </div>
+  <div class="toolbar__wrapper" [ngClass]="{ 'toolbar__wrapper-sidebar-open': vm.sidebarOpen }">
+    <label for="send-on-enter" *ngIf="vm.show
