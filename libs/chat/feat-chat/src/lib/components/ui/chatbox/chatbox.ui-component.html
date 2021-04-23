@@ -9,4 +9,9 @@
     <button class="chatbox__btn-send" (click)="onSend()">✉ Send</button>
   </div>
   <div class="toolbar__wrapper" [ngClass]="{ 'toolbar__wrapper-sidebar-open': vm.sidebarOpen }">
-    <label for="send-on-enter" *ngIf="vm.show
+    <label for="send-on-enter" *ngIf="vm.showSendOnEnterCheckbox">
+      <input type="checkbox" id="send-on-enter"
+             [ngModel]="vm.sendOnEnter"
+             (change)="onSendOnEnterChanged()"> Send message on Enter</label>
+  </div>
+</ng-container>

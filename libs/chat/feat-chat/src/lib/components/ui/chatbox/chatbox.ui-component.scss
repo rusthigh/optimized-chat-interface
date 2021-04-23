@@ -1,0 +1,13 @@
+@import 'libs/frontend/ui-design-system/src/lib/styling/breakpoints';
+@import 'libs/frontend/ui-design-system/src/lib/styling/colors';
+
+.chatbox {
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+    align-items: flex-end;
+    transition: padding-left 0.3s ease-in-out;
+
+    &-sidebar-open {
+      padding-left:
