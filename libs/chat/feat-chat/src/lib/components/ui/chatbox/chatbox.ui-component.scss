@@ -42,4 +42,33 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    wi
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $orange-100;
+    padding: 0.5rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $orange-200;
+    }
+  }
+}
+
+.toolbar__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  transition: padding-left 0.3s ease-in-out;
+
+  &-sidebar-open {
+    padding-left: 300px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &-sidebar-open
