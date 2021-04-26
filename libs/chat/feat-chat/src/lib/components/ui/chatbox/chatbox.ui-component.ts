@@ -43,4 +43,26 @@ export class ChatboxUiComponent extends ObservableState<State> {
   private readonly inputState$!: Observable<ChatboxInputState>;
 
   @Input() public sidebarOpen = false;
-  @Input() public sen
+  @Input() public sendOnEnter = false;
+  @Output() public readonly newMessage = new EventEmitter<string>();
+  @Output() public readonly toggleSendOnEnter = new EventEmitter();
+
+  public readonly vm$: Observable<PageViewModel> = this.onlySelectWhen([
+    'sidebarOpen',
+    'sendOnEnter',
+    'message'
+  ]).pipe(
+    map(({ sidebarOpen, sendOnEnter, message }) => ({
+      sidebarOpen,
+      message,
+      sendOnEnter,
+      showSendOnEnterCheckbox: message.length > 0
+    }))
+  );
+
+  constructor() {
+    super();
+    this.initialize(
+      {
+        ...getDefaultInputState(this),
+        me
