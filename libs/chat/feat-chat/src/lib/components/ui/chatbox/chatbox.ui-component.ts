@@ -22,4 +22,25 @@ type PageViewModel = {
 };
 
 type ChatboxInputState = {
-  sendOnEnter: boole
+  sendOnEnter: boolean;
+  sidebarOpen: boolean;
+};
+
+type State = ChatboxInputState & {
+  message: string;
+};
+
+@Component({
+  selector: 'ac-chatbox',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './chatbox.ui-component.html',
+  styleUrls: ['./chatbox.ui-component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class ChatboxUiComponent extends ObservableState<State> {
+  @InputState()
+  private readonly inputState$!: Observable<ChatboxInputState>;
+
+  @Input() public sidebarOpen = false;
+  @Input() public sen
