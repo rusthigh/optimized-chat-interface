@@ -71,4 +71,8 @@
   }
 
   @media (max-width: $breakpoint-md) {
-    &-sidebar-open
+    &-sidebar-open {
+      padding-left: 0;
+    }
+  }
+}
