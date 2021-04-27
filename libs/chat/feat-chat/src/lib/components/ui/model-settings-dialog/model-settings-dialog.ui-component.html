@@ -1,0 +1,9 @@
+<ac-dialog (closeDialog)="closeDialog.emit()" *ngIf="vm$ | async as vm">
+  <ng-container ac-dialog-header>
+    <h1>Model Settings</h1>
+  </ng-container>
+  <ng-container ac-dialog-body>
+    <div class="model-settings__wrapper">
+
+      <p class="model-settings__subtitle">Actions</p>
+      <button (click)="setSetting
