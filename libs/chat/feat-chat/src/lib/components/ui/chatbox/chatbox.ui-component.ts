@@ -65,4 +65,27 @@ export class ChatboxUiComponent extends ObservableState<State> {
     this.initialize(
       {
         ...getDefaultInputState(this),
-        me
+        message: ''
+      },
+      this.inputState$
+    );
+  }
+
+  public onTextAreaInput(): void {
+    const textarea = document.getElementById('chatbox');
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    }
+  }
+
+  public onSend(): void {
+    this.newMessage.emit(this.snapshot.message);
+    this.patch({ message: '' });
+  }
+
+  public updateMessage(message: string): void {
+    // When send on enter is enabled, we want to send the message when the user presses enter
+    if (
+      this.snapshot.sendOnEnter &&
+      message.charAt(m
