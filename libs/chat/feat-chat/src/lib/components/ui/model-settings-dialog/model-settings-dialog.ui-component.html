@@ -18,4 +18,15 @@
                  [ngModel]="vm.model"
                  (ngModelChange)="onModelChanged($event)">
 
-          <div class="m
+          <div class="model-settings__model__option__icon">
+            <svg acOpenAiIcon></svg>
+          </div>
+
+          <div class="model-settings__model__option__info">
+            <div class="model-settings__model__option__label">GPT-3.5 Turbo</div>
+            <div class="model-settings__model__option__sublabel">By OpenAI</div>
+          </div>
+        </label>
+        <label class="model-settings__model__option"
+               [ngClass]="{'model-settings__model__option-checked': vm.model === 'gpt-4'}">
+          <input type="radio" name="model" value="gpt-4" [ngModel]="vm.mod
