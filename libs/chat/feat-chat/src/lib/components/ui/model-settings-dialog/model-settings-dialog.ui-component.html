@@ -42,4 +42,13 @@
         </label>
       </div>
       <p class="model-settings__subtitle">Initial System Instruction
-        <button (click)="resetSystemInstructionToDefault()" class="bu
+        <button (click)="resetSystemInstructionToDefault()" class="button-reset">(Reset to default)</button>
+        <span class="model-settings__system-message-not-allowed" *ngIf="vm.disableSystemMessageToBeUpdated">
+          You can't edit the system message once the chat has started.</span>
+      </p>
+
+      <div class="model-settings__system-message">
+        <textarea [ngModel]="vm.initialSystemInstruction"
+                  [disabled]="vm.disableSystemMessageToBeUpdated"
+                  (ngModelChange)="onSystemInstructionChanged($event)"></textarea>
+        <button *ngIf=
