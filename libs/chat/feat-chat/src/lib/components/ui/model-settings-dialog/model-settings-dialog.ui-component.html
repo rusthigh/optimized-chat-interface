@@ -51,4 +51,16 @@
         <textarea [ngModel]="vm.initialSystemInstruction"
                   [disabled]="vm.disableSystemMessageToBeUpdated"
                   (ngModelChange)="onSystemInstructionChanged($event)"></textarea>
-        <button *ngIf=
+        <button *ngIf="vm.systemInstructionChanged" (click)="saveSystemInstruction()"
+                class="button-save-system-message">💾 Save Initial System Instruction
+        </button>
+
+      </div>
+      <p class="model-settings__subtitle">Temperature: {{ vm.temperature }}
+        <button (click)="resetTemperatureToDefault()" class="button-reset">(Reset to default)</button>
+        <span class="model-settings__temperature-help">
+          Lower values like 0.2 = predictable and focused, higher values like 0.9 = more creative and random
+        </span>
+      </p>
+
+      
