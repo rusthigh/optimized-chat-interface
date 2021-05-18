@@ -63,4 +63,15 @@
         </span>
       </p>
 
-      
+      <div class="model-settings__temperature">
+        <input type="range" min="0" max="1" step="0.1" [ngModel]="vm.temperature"
+               (ngModelChange)="onTemperatureChanged($event)">
+        <div class="model-settings__temperature__labels">
+          <div class="model-settings__temperature__label">Precise</div>
+          <div class="model-settings__temperature__label">Neutral</div>
+          <div class="model-settings__temperature__label">Creative</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ac-dialog>

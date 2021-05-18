@@ -1,0 +1,45 @@
+
+@import 'libs/frontend/ui-design-system/src/lib/styling/breakpoints';
+@import 'libs/frontend/ui-design-system/src/lib/styling/spacing';
+@import 'libs/frontend/ui-design-system/src/lib/styling/colors';
+
+.model-settings {
+  &__wrapper {
+    min-width: 80vw;
+    max-width: 600px;
+
+    @media (min-width: $breakpoint-sm) {
+      min-width: 500px;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      min-width: 600px;
+    }
+  }
+
+  &__subtitle {
+    margin: $spacing-small 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  &__model {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+    gap: $spacing-small;
+
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+    }
+
+    &__option {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 0.5rem;
+      border: 1px solid $gray-300;
+      border-radius: 4px;
+      padding: $spacing-small;
+      flex: 1;
+      gap: $spacing-small;
