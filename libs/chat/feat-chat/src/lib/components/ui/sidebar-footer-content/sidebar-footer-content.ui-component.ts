@@ -7,4 +7,20 @@ import {
 import { FacadeService } from '../../../facade.service';
 import { map, Observable } from 'rxjs';
 
-type PageVie
+type PageViewModel = {
+  buttonApiKeyLabel: string;
+};
+
+@Component({
+  selector: 'ac-sidebar-footer-content',
+  standalone: true,
+  imports: [CommonModule, GithubIconUiComponent, TwitterIconUiComponent],
+  templateUrl: './sidebar-footer-content.ui-component.html',
+  styleUrls: ['./sidebar-footer-content.ui-component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SidebarFooterContentUiComponent {
+  private readonly facade = inject(FacadeService);
+  private readonly chatObservableState = this.facade.chatObservableState;
+
+  public vm$: Observable<PageViewModel
