@@ -23,4 +23,16 @@ export class SidebarFooterContentUiComponent {
   private readonly facade = inject(FacadeService);
   private readonly chatObservableState = this.facade.chatObservableState;
 
-  public vm$: Observable<PageViewModel
+  public vm$: Observable<PageViewModel> = this.chatObservableState
+    .onlySelectWhen(['openAIApiKey'])
+    .pipe(
+      map(({ openAIApiKey }) => ({
+        buttonApiKeyLabel:
+          openAIApiKey.length === 0 ? '⚠️ Enter API Key' : '✅ Valid API Key'
+      }))
+    );
+
+  public openInputApiKeyDialog(): void {
+    this.chatObservableState.openInputApiKeyDialog();
+  }
+}
