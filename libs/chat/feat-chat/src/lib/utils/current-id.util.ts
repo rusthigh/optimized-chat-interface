@@ -11,4 +11,14 @@ export const getCurrentId = (
     map((route) => {
       while (route.firstChild) {
         route = route.firstChild;
-     
+      }
+      return route;
+    }),
+    mergeMap((route) => route.params),
+    map((params) => params['id'] || null),
+    shareReplay({
+      bufferSize: 1,
+      refCount: true
+    })
+  );
+};
