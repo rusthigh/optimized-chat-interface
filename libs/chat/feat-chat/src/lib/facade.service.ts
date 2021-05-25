@@ -19,4 +19,6 @@ export class FacadeService {
     userMessage: string,
     assistantMessage: string
   ): Observable<string> {
-    return this.chatService
+    return this.chatService.generateTitleForChat(userMessage, assistantMessage);
+  }
+}
