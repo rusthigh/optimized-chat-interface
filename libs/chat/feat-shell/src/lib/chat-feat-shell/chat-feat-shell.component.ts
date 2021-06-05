@@ -14,4 +14,31 @@ import {
   SidebarFooterContentUiComponent
 } from '@ameliorated-chat/chat/feat-chat';
 import { Chat } from '@ameliorated-chat/chat/type-chat';
-import { SettingsIconUiComponent } from '@ameliorated-chat/frontend/ui-ic
+import { SettingsIconUiComponent } from '@ameliorated-chat/frontend/ui-icons';
+
+type PageViewModel = {
+  sidebarOpen: boolean;
+  currentChatTitle: string;
+  temperatureOfCurrentChat: number;
+  modelOfCurrentChat: string;
+  messagesCountOfCurrentChat: number;
+  showSettingsDropdown: boolean;
+};
+
+type State = {
+  sidebarOpen: boolean;
+  currentChat: Chat | null;
+  currentChatId: string | null;
+  chats: Chat[];
+  showSettingsDropdown: boolean;
+};
+
+@Component({
+  selector: 'ac-shell',
+  standalone: true,
+  imports: [
+    CommonModule,
+    HeaderUiComponent,
+    RouterOutlet,
+    SidebarUiComponent,
+    SidebarContentSmartCompon
