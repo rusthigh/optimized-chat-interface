@@ -41,4 +41,17 @@ type State = {
     HeaderUiComponent,
     RouterOutlet,
     SidebarUiComponent,
-    SidebarContentSmartCompon
+    SidebarContentSmartComponent,
+    SidebarFooterContentUiComponent,
+    SettingsIconUiComponent
+  ],
+  templateUrl: './chat-feat-shell.component.html',
+  styleUrls: ['./chat-feat-shell.component.scss']
+})
+export class ChatFeatShellComponent extends ObservableState<State> {
+  private readonly facade = inject(FacadeService);
+  private readonly router = inject(Router);
+  private readonly chatObservableState = this.facade.chatObservableState;
+  private readonly activatedRoute = inject(ActivatedRoute);
+
+  public readonly vm$: Observable<PageViewModel> 
