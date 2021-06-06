@@ -54,4 +54,23 @@ export class ChatFeatShellComponent extends ObservableState<State> {
   private readonly chatObservableState = this.facade.chatObservableState;
   private readonly activatedRoute = inject(ActivatedRoute);
 
-  public readonly vm$: Observable<PageViewModel> 
+  public readonly vm$: Observable<PageViewModel> = this.onlySelectWhen([
+    'sidebarOpen',
+    'currentChat',
+    'currentChatId',
+    'chats',
+    'showSettingsDropdown'
+  ]).pipe(
+    map(({ sidebarOpen, currentChat, showSettingsDropdown }) => ({
+      sidebarOpen,
+      currentChatTitle: currentChat ? currentChat?.title : '',
+      temperatureOfCurrentChat: currentChat ? currentChat?.temperature : 0,
+      modelOfCurrentChat: currentChat ? currentChat?.model : '',
+      messagesCountOfCurrentChat: currentChat
+        ? currentChat?.messages.length
+        : 0,
+      showSettingsDropdown
+    }))
+  );
+
+  constructo
