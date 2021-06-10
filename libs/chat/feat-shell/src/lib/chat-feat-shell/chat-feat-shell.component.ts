@@ -73,4 +73,23 @@ export class ChatFeatShellComponent extends ObservableState<State> {
     }))
   );
 
-  constructo
+  constructor() {
+    super();
+    this.initialize({
+      sidebarOpen: true,
+      currentChatId: null,
+      currentChat: null,
+      chats: [],
+      showSettingsDropdown: false
+    });
+
+    const currentChatId$ = getCurrentId(this.router, this.activatedRoute);
+    const currentChat$ = this.onlySelectWhen(['currentChatId', 'chats']).pipe(
+      map(
+        ({ currentChatId, chats }) =>
+          chats.find((chat) => chat.id === currentChatId) || null
+      )
+    );
+
+    this.connect({
+      ...this.chatObservableState.pick(['sidebarOpen', 'chats'])
