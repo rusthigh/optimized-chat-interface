@@ -92,4 +92,17 @@ export class ChatFeatShellComponent extends ObservableState<State> {
     );
 
     this.connect({
-      ...this.chatObservableState.pick(['sidebarOpen', 'chats'])
+      ...this.chatObservableState.pick(['sidebarOpen', 'chats']),
+      currentChatId: currentChatId$,
+      currentChat: currentChat$
+    });
+  }
+
+  public openHamburgerMenu(): void {
+    this.chatObservableState.toggleSidebar();
+  }
+
+  public closeHamburgerMenu(): void {
+    this.chatObservableState.toggleSidebar();
+  }
+}
