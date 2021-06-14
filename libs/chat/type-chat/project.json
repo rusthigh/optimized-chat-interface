@@ -20,4 +20,15 @@
         }
       }
     },
-    "lint":
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/chat/type-chat/**/*.ts",
+          "libs/chat/type-chat/**/*.html"
+        ]
+      }
+    }
+  }
+}
