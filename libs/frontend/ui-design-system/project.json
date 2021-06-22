@@ -1,0 +1,13 @@
+{
+  "name": "frontend-ui-design-system",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/ui-design-system/src",
+  "prefix": "ac",
+  "tags": [
+    "scope:frontend",
+    "type:ui"
+  ],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nr
