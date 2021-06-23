@@ -1,0 +1,17 @@
+@import 'libs/frontend/ui-design-system/src/lib/styling/colors';
+@import 'libs/frontend/ui-design-system/src/lib/styling/spacing';
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  padding: $spacing-medium;
+  background: $white;
+  max-height: 95vh;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    fo
