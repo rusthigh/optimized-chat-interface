@@ -33,4 +33,9 @@
       "options": {
         "lintFilePatterns": [
           "libs/frontend/ui-design-system/**/*.ts",
-    
+          "libs/frontend/ui-design-system/**/*.html"
+        ]
+      }
+    }
+  }
+}
