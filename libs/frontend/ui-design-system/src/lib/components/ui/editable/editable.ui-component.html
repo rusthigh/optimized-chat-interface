@@ -1,0 +1,8 @@
+<ng-container *ngIf="vm$ | async as vm">
+
+  <ng-container *ngIf="vm.isEditing; else viewMode">
+    <div class="edit-mode">
+      <textarea [(ngModel)]="value"></textarea>
+      <div class="edit-mode__buttons">
+        <button class="edit-mode__button-save" (click)="saveEdit()">✓</button>
+     

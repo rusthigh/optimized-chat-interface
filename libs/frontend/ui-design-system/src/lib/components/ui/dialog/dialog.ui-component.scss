@@ -14,4 +14,17 @@
     align-items: center;
     justify-content: space-between;
     gap: 4rem;
-    fo
+    font-weight: bold;
+    border-bottom: 1px solid $gray-300;
+  }
+
+  &__body {
+    padding: $spacing-medium $spacing-small;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.button__close {
+  padding: $spacing-small;
+}
