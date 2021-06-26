@@ -1,0 +1,27 @@
+@import 'libs/frontend/ui-design-system/src/lib/styling/spacing';
+@import 'libs/frontend/ui-design-system/src/lib/styling/colors';
+
+.view-mode {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+  &__content {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 1;
+    padding: 8px 0;
+  }
+
+  &__buttons {
+    display: none;
+    flex-direction: row;
+    padding-right: 4px;
+  }
+}
+
+:host:hover {
+  .view-mode__content {
+    flex: 
