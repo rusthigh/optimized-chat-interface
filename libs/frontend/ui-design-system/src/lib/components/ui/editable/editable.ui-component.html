@@ -5,4 +5,22 @@
       <textarea [(ngModel)]="value"></textarea>
       <div class="edit-mode__buttons">
         <button class="edit-mode__button-save" (click)="saveEdit()">✓</button>
-     
+        <button class="edit-mode__button-cancel" (click)="cancelEdit()">X</button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #viewMode>
+    <div class="view-mode">
+      <div class="view-mode__content" [title]="value">
+        {{ value }}
+      </div>
+      <div class="view-mode__buttons">
+        <button class="view-mode__button-start" (click)="startEdit()">✏️</button>
+        <button class="view-mode__button-delete" (click)="deleteClicked()">{{ vm.deleteButtonLabel}}️
+        </button>
+      </div>
+    </div>
+  </ng-template>
+
+</ng-
