@@ -1,0 +1,11 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <header class="header" [ngClass]="{ 'header-sidebar-open': vm.sidebarOpen }">
+    <div class="header__hamburger">
+      <button type="button" class="header__button" (click)="onOpenHamburgerMenu()">
+        <span class="sr-only">Open sidebar</span>
+        <svg acBurgerIcon></svg>
+      </button>
+    </div>
+
+    <div class="header__title">
+      <ng-c
