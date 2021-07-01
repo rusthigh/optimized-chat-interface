@@ -8,4 +8,12 @@
     </div>
 
     <div class="header__title">
-      <ng-c
+      <ng-content></ng-content>
+    </div>
+
+    <div class="header__options">
+      <ng-content select="[ac-header-options]"></ng-content>
+    </div>
+  </header>
+
+</ng-container>
