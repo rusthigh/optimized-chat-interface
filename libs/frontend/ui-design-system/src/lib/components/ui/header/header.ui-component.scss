@@ -15,4 +15,28 @@
   background: $white;
 
   &-sidebar-open {
-    @media screen a
+    @media screen and (min-width: $breakpoint-md) {
+      width: calc(100% - 300px);
+    }
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 400px;
+  }
+
+  &__button {
+    padding: $spacing-xsmall;
+
+    &:hover {
+      background-color: $gray-200;
+    }
+  }
+}
