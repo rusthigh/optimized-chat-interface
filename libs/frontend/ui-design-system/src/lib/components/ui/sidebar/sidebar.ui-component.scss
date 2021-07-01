@@ -13,4 +13,37 @@
 
   }
 
-  &
+  &__body {
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+  }
+
+  &__footer {
+    margin-top: auto;
+    height: 130px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: -3rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+
+    @media screen and (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction:
