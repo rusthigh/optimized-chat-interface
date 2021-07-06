@@ -46,4 +46,11 @@
   &__content {
     flex-grow: 1;
     display: flex;
-    flex-direction:
+    flex-direction: column;
+
+    @media screen and (min-width: $breakpoint-md) {
+      width: 300px;
+    }
+  }
+}
+
