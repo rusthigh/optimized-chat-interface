@@ -18,4 +18,5 @@ export class SettingsIconUiComponent {
   public readonly fill = 'currentColor';
 
   @HostBinding('attr.viewBox')
-  public readonly viewBox = '0 0 24 2
+  public readonly viewBox = '0 0 24 24';
+}
