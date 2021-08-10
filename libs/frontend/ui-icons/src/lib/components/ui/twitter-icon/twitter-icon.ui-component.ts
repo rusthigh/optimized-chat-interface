@@ -18,4 +18,23 @@ import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
     A  70,  70 0 0 1 370, 523
     A  70,  70 0 0 0 401, 521
     A  70,  70 0 0 1 344, 455
-    A  70,  70
+    A  70,  70 0 0 0 372, 460
+    A  70,  70 0 0 1 354, 370
+    A 195, 195 0 0 0 495, 442
+    A  67,  67 0 0 1 611, 380
+    A 117, 117 0 0 0 654, 363
+    A  65,  65 0 0 1 623, 401
+    A 117, 117 0 0 0 662, 390
+    A  65,  65 0 0 1 630, 425
+    Z" />
+    </svg>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class TwitterIconUiComponent {
+  @HostBinding('attr.fill')
+  public readonly fill = 'currentColor';
+
+  @HostBinding('attr.viewBox')
+  public readonly viewBox = '0 0 24 24';
+}
