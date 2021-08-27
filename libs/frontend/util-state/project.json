@@ -26,4 +26,16 @@
       }
     },
     "lint": {
-      "executor": "@nrw
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/frontend/util-state/**/*.ts",
+          "libs/frontend/util-state/**/*.html"
+        ]
+      }
+    }
+  }
+}
