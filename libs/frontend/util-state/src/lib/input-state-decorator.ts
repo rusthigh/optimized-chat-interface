@@ -65,4 +65,21 @@ export function InputState<T>() {
     // to get access to this
     Object.defineProperty(target, accessorInputModel, {
       get: function () {
-        // If it doesn't exist yet, create the InputStateM
+        // If it doesn't exist yet, create the InputStateModel
+        if (!this[secretInputModel]) {
+          this[secretInputModel] = new InputStateModel();
+        }
+        // return the InputStateModel
+        return this[secretInputModel];
+      },
+    });
+
+    // This is what the decorator will return
+    // (the actual input state of the InputStateModel)
+    return {
+      get: function () {
+        return this[accessorInputModel].state$;
+      },
+    };
+  };
+}
