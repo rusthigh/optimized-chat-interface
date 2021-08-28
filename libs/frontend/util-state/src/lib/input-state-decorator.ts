@@ -15,4 +15,21 @@ export function InputState<T>() {
     // Keep track of the original 3 lifecycle hooks
     const origNgOnChanges = target.constructor.prototype.ngOnChanges;
     const origNgOnDestroy = target.constructor.prototype.ngOnDestroy;
-    const origNgOnInit = target.construc
+    const origNgOnInit = target.constructor.prototype.ngOnInit;
+
+    // overwrite the origin ngOnInit life cycle hook
+    target.ngOnInit = function (): void {
+      const simpleChangesToPass: TypedSimpleChanges<T> = {};
+      Object.keys(this.constructor.ɵcmp.inputs)
+        .map((key) => this.constructor.ɵcmp.inputs[key])
+        .forEach((inputKey) => {
+          simpleChangesToPass[inputKey] = new SimpleChange(
+            this[inputKey],
+            this[inputKey],
+            true
+          );
+        });
+
+      this[accessorInputModel].update(simpleChangesToPass);
+
+      // if ngOnChanges is implemented ex
