@@ -49,4 +49,20 @@ export function InputState<T>() {
       }
     };
 
-    // Overwrite the original ngOnDestroy
+    // Overwrite the original ngOnDestroy life cycle hook
+    target.ngOnDestroy = function (): void {
+      // If ngOnDestroy is implemented execute it too
+      if (origNgOnDestroy) {
+        origNgOnDestroy.apply(this, []);
+      }
+
+      // Clean up the instance InputStateModel
+      this[accessorInputModel].ngOnDestroy();
+    };
+
+    // We need to keep InputStateModel on the instance
+    // Since this decorator is static we need to use this syntax
+    // to get access to this
+    Object.defineProperty(target, accessorInputModel, {
+      get: function () {
+        // If it doesn't exist yet, create the InputStateM
