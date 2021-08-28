@@ -32,4 +32,21 @@ export function InputState<T>() {
 
       this[accessorInputModel].update(simpleChangesToPass);
 
-      // if ngOnChanges is implemented ex
+      // if ngOnChanges is implemented execute it as well
+      if (origNgOnInit) {
+        origNgOnInit.apply(this);
+      }
+    };
+
+    // overwrite the original ngOnChanges life cycle hook
+    target.ngOnChanges = function (simpleChanges: TypedSimpleChanges<T>): void {
+      // send changes to model
+      this[accessorInputModel].update(simpleChanges); // send changes to model
+
+      // if ngOnChanges is implemented execute it as well
+      if (origNgOnChanges) {
+        origNgOnChanges.apply(this, [simpleChanges]);
+      }
+    };
+
+    // Overwrite the original ngOnDestroy
