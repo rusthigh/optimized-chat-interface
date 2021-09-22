@@ -3,4 +3,30 @@
   "npmScope": "ameliorated-chat",
   "tasksRunnerOptions": {
     "default": {
-      "runn
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "NWJiNzIwNjEtNGNmMS00YzFiLTg3YTQtYWFhNDljNTNmOThjfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
+    "test": {
+      "inputs": [
+        "default",
+        "^production",
+        "{workspaceRoot}/jest.pres
