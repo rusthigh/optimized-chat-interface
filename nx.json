@@ -58,4 +58,27 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/.eslintrc.json"
     ],
-    "sharedGl
+    "sharedGlobals": []
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress",
+      "skipTests": true,
+      "standalone": true,
+      "routing": true,
+      "prefix": "ac"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "style": "scss",
+      "prefix": "ac",
+      "skipModule": true,
+      "skipTests": true,
+      "standalone": true
+    },
+    "@nrwl/angular:component": {
+      "style": 
