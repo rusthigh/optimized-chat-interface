@@ -81,4 +81,18 @@
       "standalone": true
     },
     "@nrwl/angular:component": {
-      "style": 
+      "style": "scss",
+      "skipTests": true,
+      "standalone": true,
+      "prefix": "ac"
+    },
+    "@nrwl/angular:service": {
+      "skipTests": true
+    },
+    "@nrwl/angular:directive": {
+      "skipTests": true,
+      "standalone": true
+    }
+  },
+  "defaultProject": "chat"
+}
