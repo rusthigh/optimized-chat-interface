@@ -27,4 +27,18 @@ The project is currently under development, but we've noted future features that
 - [x] Set the model for the current chat
 - [x] Select the temperature for the current chat
 - [x] Set the initial system message for the current chat
-- [x] Set a defaul
+- [x] Set a default model for future chats
+- [x] Set a default temperature for future chats
+- [x] Set a default initial system message for future chats
+- [x] Mark chats as favourites
+
+## Planned features/technical improvements
+
+- [ ] Group chats in a folder
+- [ ] Choose from a list of default messages
+- [ ] Toggle between light and dark mode
+- [ ] Loading animations
+- [ ] Select a prompt from a prompt library
+- [ ] Markup for responses (e.g. bold, italic, links, etc.)
+- [ ] Markup for code examples in responses
+- [ ] View chat history in a timeline (grouped by date) Today - yesterday - last 7 days - last 30 day
