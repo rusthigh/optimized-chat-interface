@@ -41,4 +41,21 @@ The project is currently under development, but we've noted future features that
 - [ ] Select a prompt from a prompt library
 - [ ] Markup for responses (e.g. bold, italic, links, etc.)
 - [ ] Markup for code examples in responses
-- [ ] View chat history in a timeline (grouped by date) Today - yesterday - last 7 days - last 30 day
+- [ ] View chat history in a timeline (grouped by date) Today - yesterday - last 7 days - last 30 days
+- [ ] Add a new chat with query params = text for the message and model for the model
+
+## Running the project
+
+Clone the project and run `npm install` to install all dependencies.
+
+### Running the front end
+
+Run `nx run chat:serve` to start the Angular front end
+
+## Suggestions
+
+For any suggestions or if you wish to contribute to improving this project, please open an issue or make a contribution.
+
+## Credits
+
+- The Optimized Chat Interface project was inspired by [TypingMind](https://www.typingmind.com/) built by [Tony Dinh](https://twitter.com/tdinh_me)
